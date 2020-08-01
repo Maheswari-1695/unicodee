@@ -1,0 +1,38 @@
+package google;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class pr {
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\mahi\\Desktop\\driver\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("https://www.facebook.com/");
+		driver.manage().window().maximize();
+		WebElement UserName=driver.findElement(By.id("email"));
+		UserName.sendKeys("mahi");
+		
+		WebElement PassWord=driver.findElement(By.name("pass"));
+		PassWord.sendKeys("3464");
+		
+		WebElement LogIn=driver.findElement(By.id("loginbutton"));
+		LogIn.click();
+		
+		String text=UserName.getAttribute("value");
+		System.out.println(text);
+		
+		String text2=PassWord.getText();
+		System.out.println(text2);
+		Thread.sleep(3000);
+		
+		driver.quit();
+		
+		
+	}
+
+}
